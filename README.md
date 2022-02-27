@@ -4,6 +4,25 @@
 
 ![img.png](ethen/imgs/tomcat-source-roadmap.png)
 
+#### Tomcat组件
+
+- 组件结构
+![img.png](ethen/imgs/tomcat-components.png)
+
+- 组件描述
+
+| 组件   | 说明  |
+|------|-----|
+|Server|整个Servlet容器，一个Server可以有多个Service|
+|Service|一个Service维护多个Connector和一个Container|
+|Connector|链接器：监听转换Socket请求，将请求交给Container处理，支持不同协议以及不同的I/O方式|
+|Container|表示能够执行客户端请求并返回响应的一类对象，其中有不同级别的容器：Engine、Host、Context、Wrapper|
+|Engine|整个Servler引擎，最高级的容器对象|
+|Host|表示Servlet引擎中的虚拟机，主要与域名有关，一个服务器有多个域名是可以使用多个Host|
+|Context|用于表示ServletContext,一个ServletContext表示一个独立的Web应用|
+|Wrapper|用于表示Web应用中定义的Servlet|
+|Executor|Tomcat组件间可以共享的线程池|
+
 #### 源码目录结构
 
 - org.apache.catalina
