@@ -2,13 +2,13 @@
 
 #### 源码分析主线
 
-![img.png](ethen/imgs/tomcat-source-roadmap.png)
+![tomcat-source-roadmap.png](ethen/imgs/tomcat-source-roadmap.png)
 
 #### Tomcat组件
 
 - 组件结构
 
-![img.png](ethen/imgs/tomcat-components.png)
+![tomcat-components.png](ethen/imgs/tomcat-components.png)
 
 - 组件描述
 
@@ -23,6 +23,10 @@
 |Context|用于表示ServletContext,一个ServletContext表示一个独立的Web应用|
 |Wrapper|用于表示Web应用中定义的Servlet|
 |Executor|Tomcat组件间可以共享的线程池|
+
+#### Tomcat请求链路
+
+![tomcat-request-route.png](ethen/imgs/tomcat-request-route.png)
 
 #### 源码目录结构
 
