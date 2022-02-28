@@ -336,10 +336,10 @@ public class CoyoteAdapter implements Adapter {
             // request parameters
             postParseSuccess = postParseRequest(req, request, res, response);
             if (postParseSuccess) {
-                //检查是否我们支持异步机制
+                // 检查是否我们支持异步机制
                 request.setAsyncSupported(
                         connector.getService().getContainer().getPipeline().isAsyncSupported());
-                // 调用容器---责任链模式（pipeline）的开始
+                // fixme 调用容器---责任链模式（pipeline）的开始
                 connector.getService().getContainer().getPipeline().getFirst().invoke(
                         request, response);
             }

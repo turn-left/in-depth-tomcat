@@ -83,7 +83,7 @@ final class StandardEngineValve extends ValveBase {
             request.setAsyncSupported(host.getPipeline().isAsyncSupported());
         }
 
-        // 最为自己pipeline上最后一位工人，负责把原料运给下一个pipeline
+        // 为自己pipeline上最后一位工人，负责把原料运给下一个pipeline
         // 这是把所有pipeline串联起来的关键
         host.getPipeline().getFirst().invoke(request, response);
 

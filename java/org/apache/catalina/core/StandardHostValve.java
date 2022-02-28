@@ -124,9 +124,10 @@ final class StandardHostValve extends ValveBase {
                 return;
             }
 
+            // fixme 将请求传递给下一个 pipeline ?
             // Ask this Context to process this request. Requests that are
             // already in error must have been routed here to check for
-            // application defined error pages so DO NOT forward them to the the
+            // application defined error pages so DO NOT forward them to the
             // application for processing.
             try {
                 if (!response.isErrorReportRequired()) {
