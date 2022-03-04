@@ -64,10 +64,9 @@
 - [Tomcat - 启动过程Catalina的加载](/ethen/docs/Tomcat-启动过程Catalina的加载.md)
 - [Tomcat - 组件生命周期管理LifeCycle](/ethen/docs/Tomcat-组件生命周期管理LifeCycle.md)
 - [Tomcat - 组件拓展管理JMX和MBean](/ethen/docs/Tomcat-组件拓展管理JMX和MBean.md)
-- [Tomcat-事件的监听机制：观察者模式](/ethen/docs/Tomcat-事件的监听机制：观察者模式.md)
-- [Tomcat-Server的设计和实现 StandardServer](/ethen/docs/Tomcat-Server的设计和实现StandardServer.md)
-
-
-- [Tomcat - Request请求处理过程：Connector](https://pdai.tech/md/framework/tomcat/tomcat-x-connector.html)
+- [Tomcat - 事件的监听机制：观察者模式](/ethen/docs/Tomcat-事件的监听机制：观察者模式.md)
+- [Tomcat - Server的设计和实现StandardServer](/ethen/docs/Tomcat-Server的设计和实现StandardServer.md)
+- [Tomcat - Request请求处理Container设计](/ethen/docs/Tomcat-Request请求处理Container设计.md)
+- [Tomcat - Request请求处理过程Connector](/ethen/docs/Tomcat-Request请求处理过程Connector.md)
 
 #### 参考资源
