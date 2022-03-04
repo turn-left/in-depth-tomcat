@@ -8,7 +8,7 @@
 
 - 先回顾下整个流程，和我们分析的阶段
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-catalina-1.png)
+![img](/ethen/imgs/tomcat/tomcat-x-catalina-1.png)
 
 - 看下Bootstrap中Load的过程
 
@@ -122,7 +122,7 @@ public void load() {
 
 总体流程如下：
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-catalina-2.png)
+![img](/ethen/imgs/tomcat/tomcat-x-catalina-2.png)
 
 ### [¶](#initdirs) initDirs
 

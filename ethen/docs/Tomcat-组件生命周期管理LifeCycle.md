@@ -8,15 +8,15 @@
 
 - Server及其它组件
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-lifecycle-1.png)
+![img](/ethen/imgs/tomcat/tomcat-x-lifecycle-1.png)
 
 - Server后续组件生命周期及初始化
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-lifecycle-2.png)
+![img](/ethen/imgs/tomcat/tomcat-x-lifecycle-2.png)
 
 - Server的依赖结构
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-lifecycle-3.png)
+![img](/ethen/imgs/tomcat/tomcat-x-lifecycle-3.png)
 
 ## [¶](#lifecycle接口) LifeCycle接口
 
@@ -96,11 +96,11 @@ public enum LifecycleState {
 
 在Lifecycle.java源码中有相关的注释：
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-lifecycle-5.png)
+![img](/ethen/imgs/tomcat/tomcat-x-lifecycle-5.png)
 
 看不太清楚的可以看下图：
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-lifecycle-4.jpeg)
+![img](/ethen/imgs/tomcat/tomcat-x-lifecycle-4.jpeg)
 
 ## [¶](#lifecyclebase---lifecycle的基本实现) LifecycleBase - LifeCycle的基本实现
 

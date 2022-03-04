@@ -61,9 +61,13 @@
 - [Tomcat - 源码分析准备和分析入口](/ethen/docs/Tomcat-源码分析准备和分析入口.md)
 - [Tomcat - 启动过程：初始化和启动流程](/ethen/docs/Tomcat-启动过程：初始化和启动流程.md)
 - [Tomcat - 启动过程:类加载机制详解](/ethen/docs/Tomcat-启动过程类加载机制详解.md)
-- [Tomcat - 启动过程Catalina的加载.md](/ethen/docs/Tomcat-启动过程Catalina的加载.md)
-- [Tomcat - 组件生命周期管理LifeCycle.md](/ethen/docs/Tomcat-组件生命周期管理LifeCycle.md)
-- [Tomcat - 组件拓展管理JMX和MBean.md](/ethen/docs/Tomcat-组件拓展管理JMX和MBean.md)
+- [Tomcat - 启动过程Catalina的加载](/ethen/docs/Tomcat-启动过程Catalina的加载.md)
+- [Tomcat - 组件生命周期管理LifeCycle](/ethen/docs/Tomcat-组件生命周期管理LifeCycle.md)
+- [Tomcat - 组件拓展管理JMX和MBean](/ethen/docs/Tomcat-组件拓展管理JMX和MBean.md)
+- [Tomcat-事件的监听机制：观察者模式](/ethen/docs/Tomcat-事件的监听机制：观察者模式.md)
+- [Tomcat-Server的设计和实现 StandardServer](/ethen/docs/Tomcat-Server的设计和实现StandardServer.md)
+
+
 - [Tomcat - Request请求处理过程：Connector](https://pdai.tech/md/framework/tomcat/tomcat-x-connector.html)
 
 #### 参考资源

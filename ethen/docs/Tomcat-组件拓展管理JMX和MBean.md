@@ -10,7 +10,7 @@
 
 我们在上文中讲Lifecycle和相关组件时，你会发现其实还设计一块就是左侧的JMX和MBean的实现，即LifecycleMBeanBase.
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-jmx-1.jpg)
+![img](/ethen/imgs/tomcat/tomcat-x-jmx-1.jpg)
 
 ### [¶](#什么是jmx和mbean) 什么是JMX和MBean
 
@@ -22,7 +22,7 @@ JMX(Java Management Extensions)是一个为应用程序植入管理功能的框�
 
 我们看下**JMX的结构**
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-jmx-2.png)
+![img](/ethen/imgs/tomcat/tomcat-x-jmx-2.png)
 
 - **Probe Level** 负责资源的检测（获取信息），包含MBeans，通常也叫做Instrumentation Level。MX管理构件（MBean）分为四种形式，分别是标准管理构件（Standard MBean）、动态管理构件（Dynamic MBean）、开放管理构件(Open Mbean)和模型管理构件(Model MBean)。
 - **The Agent Level** 或者叫做MBean Server（代理服务器），是JMX的核心，连接Mbeans和远程监控程序。
@@ -114,7 +114,7 @@ public class Main {
 
 - 整体流程
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-jmx-3.jpg)
+![img](/ethen/imgs/tomcat/tomcat-x-jmx-3.jpg)
 
 > 如上步骤就能让你理解常见的Jconsole是如何通过JMX获取属性，对象等监控信息的了。
 
@@ -232,17 +232,17 @@ public class ControlImplAgent {
 
 PS：相关Adapter可以通过这里下载https://download.csdn.net/download/com_ma/10379741
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-jmx-4.jpg)
+![img](/ethen/imgs/tomcat/tomcat-x-jmx-4.jpg)
 
 点击最后一个链接
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-jmx-5.jpg)
+![img](/ethen/imgs/tomcat/tomcat-x-jmx-5.jpg)
 
 ## [¶](#tomcat如何通过jmx实现组件管理) Tomcat如何通过JMX实现组件管理
 
 > 在简单理解了JMX概念和案例之后，我们便可以开始学习Tomcat基于JMX的实现了。
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/tomcat/tomcat-x-jmx-1.jpg)
+![img](/ethen/imgs/tomcat/tomcat-x-jmx-1.jpg)
 
 上述图中，我们看下相关的类的用途
 
