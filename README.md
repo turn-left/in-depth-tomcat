@@ -54,11 +54,13 @@
 -Djava.util.logging.config.file=catalina-home/conf/logging.properties
 ```
 
-#### 参考文章
+#### 系列博文
 
-- [Tomcat - 如何设计一个简单的web容器](https://pdai.tech/md/framework/tomcat/tomcat-x-design-web-container.html)
-- [Tomcat - 理解Tomcat架构设计](https://pdai.tech/md/framework/tomcat/tomcat-x-arch.html)
-- [Tomcat - 源码分析准备和分析入口](https://pdai.tech/md/framework/tomcat/tomcat-x-sourcecode.html)
+- [Tomcat - 如何设计一个简单的web容器](/ethen/docs/Tomcat-如何设计一个简单的web容器.md)
+- [Tomcat - 理解Tomcat架构设计](/ethen/docs/Tomcat-理解Tomcat架构设计.md)
+- [Tomcat - 源码分析准备和分析入口](/ethen/docs/Tomcat-源码分析准备和分析入口.md)
 - [Tomcat - 启动过程：初始化和启动流程](https://pdai.tech/md/framework/tomcat/tomcat-x-start.html)
 - [Tomcat - 启动过程:类加载机制详解](https://pdai.tech/md/framework/tomcat/tomcat-x-classloader.html)
 - [Tomcat - Request请求处理过程：Connector](https://pdai.tech/md/framework/tomcat/tomcat-x-connector.html)
+
+#### 参考资源
