@@ -33,8 +33,6 @@ public Socket (java.lang.String host, int port)
     
 ```
 
-1
-
 在这里主机是指远程机器名称或者 IP 地址，端口是指远程应用的端口号。例如，要连接 yahoo.com 的 80 端口，你需要构造以下的 Socket 对象:
 
 ```java
@@ -43,8 +41,6 @@ new Socket ("yahoo.com", 80);
         @pdai: 代码已经复制到剪贴板
     
 ```
-
-1
 
 一旦你成功创建了一个 Socket 类的实例，你可以使用它来发送和接受字节流。要发送字节 流，你首先必须调用Socket类的getOutputStream方法来获取一个`java.io.OutputStream`对象。 要 发 送 文 本 到 一 个 远 程 应 用 ， 你 经 常 要 从 返 回 的 OutputStream 对 象 中 构 造 一 个 `java.io.PrintWriter` 对象。要从连接的另一端接受字节流，你可以调用 Socket 类的 getInputStream 方法用来返回一个 `java.io.InputStream` 对象。
 
@@ -66,8 +62,6 @@ public ServerSocket(int port, int backLog, InetAddress bindingAddress);
         @pdai: 代码已经复制到剪贴板
     
 ```
-
-1
 
 ## [¶](#一个简单web容器的设计和实现：对静态资源) 一个简单web容器的设计和实现：对静态资源
 
