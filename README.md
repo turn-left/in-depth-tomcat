@@ -59,8 +59,8 @@
 - [Tomcat - 如何设计一个简单的web容器](/ethen/docs/Tomcat-如何设计一个简单的web容器.md)
 - [Tomcat - 理解Tomcat架构设计](/ethen/docs/Tomcat-理解Tomcat架构设计.md)
 - [Tomcat - 源码分析准备和分析入口](/ethen/docs/Tomcat-源码分析准备和分析入口.md)
-- [Tomcat - 启动过程：初始化和启动流程](https://pdai.tech/md/framework/tomcat/tomcat-x-start.html)
-- [Tomcat - 启动过程:类加载机制详解](https://pdai.tech/md/framework/tomcat/tomcat-x-classloader.html)
+- [Tomcat - 启动过程：初始化和启动流程](/ethen/docs/Tomcat-启动过程：初始化和启动流程.md)
+- [Tomcat - 启动过程:类加载机制详解](/ethen/docs/Tomcat-启动过程类加载机制详解.md)
 - [Tomcat - Request请求处理过程：Connector](https://pdai.tech/md/framework/tomcat/tomcat-x-connector.html)
 
 #### 参考资源
