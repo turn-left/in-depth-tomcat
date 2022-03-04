@@ -53,9 +53,9 @@ Tomcat的前身为Catalina，Catalina又是一个轻量级的Servlet容器。在
   - Valve -- 阀门组件，配合Pipeline实现过滤器功能
   - Realm -- 认证授权组件
 
-### [¶](#从webxml配置和模块对应角度) 从web.xml配置和模块对应角度
+### [¶](#从webxml配置和模块对应角度) server.xml配置和模块对应角度
 
-> 上述模块的理解不是孤立的，它直接映射为Tomcat的web.xml配置，让我们联系起来看
+> 上述模块的理解不是孤立的，server.xml配置，让我们联系起来看
 
 ![img](/ethen/imgs/tomcat/tomcat-x-design-2-3.jpg)
 
