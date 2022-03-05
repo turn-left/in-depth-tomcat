@@ -18,7 +18,7 @@ http://tomcat.apache.org/tomcat-9.0-doc/config/service.html
 
 ## [¶](#service结构设计) Service结构设计
 
-> 我们需要从高一点的维度去理解service的结构设计，而不是多少方法多少代码；这里的理解一定是要结合Server.xml中service配置部分对应理解。@pdai
+> 我们需要从高一点的维度去理解service的结构设计，而不是多少方法多少代码；这里的理解一定是要结合Server.xml中service配置部分对应理解。
 
 ### [¶](#serverxml) server.xml
 

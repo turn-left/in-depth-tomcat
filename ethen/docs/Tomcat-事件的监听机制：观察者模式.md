@@ -340,7 +340,7 @@ public final synchronized void stop() throws LifecycleException {
 
     try {
         if (state.equals(LifecycleState.FAILED)) {
-            // @pdai：看这里
+            // ：看这里
             fireLifecycleEvent(BEFORE_STOP_EVENT, null);
         } else {
             setStateInternal(LifecycleState.STOPPING_PREP, null, false);
