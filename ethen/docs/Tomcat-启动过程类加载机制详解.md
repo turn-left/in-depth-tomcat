@@ -114,7 +114,7 @@ Java是一门面向对象的语言，而对象又必然依托于类。类要运�
 
 > 如果所有的类都使用一个类加载器来加载，会出现什么问题呢？
 
-假如我们自己编写一个类`java.util.Object`，它的实现可能有一定的危险性或者隐藏的bug。而我们知道Java自带的核心类里面也有`java.util.Object`，如果JVM启动的时候先行加载的是我们自己编写的`java.util.Object`，那么就有可能出现安全问题！
+假如我们自己编写一个类`java.lang.Object`，它的实现可能有一定的危险性或者隐藏的bug。而我们知道Java自带的核心类里面也有`java.lang.Object`，如果JVM启动的时候先行加载的是我们自己编写的`java.lang.Object`，那么就有可能出现安全问题！
 
 所以，Sun（后被Oracle收购）采用了另外一种方式来保证最基本的、也是最核心的功能不会被破坏。你猜的没错，那就是双亲委派模式！
 
@@ -177,13 +177,9 @@ public ClassLoader getContextClassLoader()
   ，负责加载Tomcat和Web应用都复用的类
 
   - **Catalina类加载器**，负责加载Tomcat专用的类，而这些被加载的类在Web应用中将不可见
-
-  - Shared类加载器
-
-    ，负责加载Tomcat下所有的Web应用程序都复用的类，而这些被加载的类在Tomcat中将不可见
-
-    - **WebApp类加载器**，负责加载具体的某个Web应用程序所使用到的类，而这些被加载的类在Tomcat和其他的Web应用程序都将不可见
-    - **Jsp类加载器**，每个jsp页面一个类加载器，不同的jsp页面有不同的类加载器，方便实现jsp页面的热插拔
+  - **Shared类加载器** ，负责加载Tomcat下所有的Web应用程序都复用的类，而这些被加载的类在Tomcat中将不可见
+  - **WebApp类加载器**，负责加载具体的某个Web应用程序所使用到的类，而这些被加载的类在Tomcat和其他的Web应用程序都将不可见
+  - **Jsp类加载器**，每个jsp页面一个类加载器，不同的jsp页面有不同的类加载器，方便实现jsp页面的热插拔
 
 同样的，我们可以看到通过**ContextClassLoader**（上下文类加载器）的**setContextClassLoader**来传入自己实现的类加载器
 
