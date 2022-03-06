@@ -140,6 +140,7 @@ public final class Bootstrap {
     // -------------------------------------------------------- Private Methods
 
     // 初始化三个类加载器以及确定父子关系
+    // commonLoader为catalinaLoader、sharedLoader的parent类加载器
     private void initClassLoaders() {
         try {
             // commonLoader的加载路径为common.loader

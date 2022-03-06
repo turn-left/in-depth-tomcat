@@ -101,7 +101,7 @@ Class<?> startupClass = catalinaLoader.loadClass("org.apache.catalina.startup.Ca
 
 ## [¶](#深入理解) 深入理解
 
-可以复习下类加载机制的基础：[JVM基础 - Java 类加载机制]()
+可以复习下类加载机制的基础：[JVM基础 - Java 类加载机制](https://github.com/turn-left/in-depth-java/blob/master/docs/jvm/JVM%E5%9F%BA%E7%A1%80%EF%BC%9A%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90.md)
 
 ### [¶](#什么是类加载机制) 什么是类加载机制
 
