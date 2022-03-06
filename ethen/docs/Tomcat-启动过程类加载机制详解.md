@@ -172,14 +172,11 @@ public ClassLoader getContextClassLoader()
 
 我们在这张图中看到很多类加载器，除了Jdk自带的类加载器，我们尤其关心Tomcat自身持有的类加载器。仔细一点我们很容易发现：Catalina类加载器和Shared类加载器，他们并不是父子关系，而是兄弟关系。为啥这样设计，我们得分析一下每个类加载器的用途，才能知晓。
 
-- Common类加载器
-
-  ，负责加载Tomcat和Web应用都复用的类
-
-  - **Catalina类加载器**，负责加载Tomcat专用的类，而这些被加载的类在Web应用中将不可见
-  - **Shared类加载器** ，负责加载Tomcat下所有的Web应用程序都复用的类，而这些被加载的类在Tomcat中将不可见
-  - **WebApp类加载器**，负责加载具体的某个Web应用程序所使用到的类，而这些被加载的类在Tomcat和其他的Web应用程序都将不可见
-  - **Jsp类加载器**，每个jsp页面一个类加载器，不同的jsp页面有不同的类加载器，方便实现jsp页面的热插拔
+- **Common类加载器** ，负责加载Tomcat和Web应用都复用的类
+- **Catalina类加载器**，负责加载Tomcat专用的类，而这些被加载的类在Web应用中将不可见
+- **Shared类加载器** ，负责加载Tomcat下所有的Web应用程序都复用的类，而这些被加载的类在Tomcat中将不可见
+- **WebApp类加载器**，负责加载具体的某个Web应用程序所使用到的类，而这些被加载的类在Tomcat和其他的Web应用程序都将不可见
+- **Jsp类加载器**，每个jsp页面一个类加载器，不同的jsp页面有不同的类加载器，方便实现jsp页面的热插拔
 
 同样的，我们可以看到通过**ContextClassLoader**（上下文类加载器）的**setContextClassLoader**来传入自己实现的类加载器
 
