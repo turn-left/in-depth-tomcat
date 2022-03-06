@@ -5019,6 +5019,7 @@ public class StandardContext extends ContainerBase
         if (ok) {
             resourcesStart();
         }
+        // 初始化 WebappLoader
         if (getLoader() == null) {
             WebappLoader webappLoader = new WebappLoader(getParentClassLoader());
             webappLoader.setDelegate(getDelegate());

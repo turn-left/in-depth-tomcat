@@ -260,7 +260,7 @@ public final class Bootstrap {
 
         SecurityClassLoad.securityClassLoad(catalinaLoader);
 
-        // 加载启动类Catalina并调用其process（）方法
+        // 加载启动类Catalina并调用其process()方法
         if (log.isDebugEnabled())
             log.debug("Loading startup class");
         Class<?> startupClass = catalinaLoader.loadClass("org.apache.catalina.startup.Catalina");
@@ -286,7 +286,7 @@ public final class Bootstrap {
      * Load daemon.
      */
     private void load(String[] arguments) throws Exception {
-        System.out.println("Bootsrap--load()");
+        System.out.println("Bootstrap--load()");
         // Call the load() method
         String methodName = "load";
         Object[] param;
@@ -302,6 +302,7 @@ public final class Bootstrap {
         }
         Method method = catalinaDaemon.getClass().getMethod(methodName, paramTypes);
         if (log.isDebugEnabled()) log.debug("Calling startup class " + method);
+        // 本质上就是调用catalina的load方法
         method.invoke(catalinaDaemon, param);
 
     }
@@ -343,8 +344,10 @@ public final class Bootstrap {
      */
     public void start() throws Exception {
 
-        if (catalinaDaemon == null) init();
+        if (catalinaDaemon == null)
+            init();
         System.out.println("Bootstrap--start()");
+        // 调用catalina的start方法
         Method method = catalinaDaemon.getClass().getMethod("start", (Class[]) null);
         method.invoke(catalinaDaemon, (Object[]) null);
 
@@ -410,9 +413,9 @@ public final class Bootstrap {
      */
     public void setAwait(boolean await) throws Exception {
 
-        Class<?> paramTypes[] = new Class[1];
+        Class<?>[] paramTypes = new Class[1];
         paramTypes[0] = Boolean.TYPE;
-        Object paramValues[] = new Object[1];
+        Object[] paramValues = new Object[1];
         paramValues[0] = Boolean.valueOf(await);
         Method method = catalinaDaemon.getClass().getMethod("setAwait", paramTypes);
         method.invoke(catalinaDaemon, paramValues);
@@ -420,8 +423,8 @@ public final class Bootstrap {
     }
 
     public boolean getAwait() throws Exception {
-        Class<?> paramTypes[] = new Class[0];
-        Object paramValues[] = new Object[0];
+        Class<?>[] paramTypes = new Class[0];
+        Object[] paramValues = new Object[0];
         Method method = catalinaDaemon.getClass().getMethod("getAwait", paramTypes);
         Boolean b = (Boolean) method.invoke(catalinaDaemon, paramValues);
         return b.booleanValue();
@@ -441,7 +444,7 @@ public final class Bootstrap {
     /**
      * Main method and entry point when starting Tomcat via the provided
      * scripts.
-     *
+     * fixme tomcat启动入口
      * @param args Command line arguments to be processed
      */
     public static void main(String[] args) {

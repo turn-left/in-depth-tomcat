@@ -105,7 +105,7 @@ public abstract class LifecycleBase implements Lifecycle {
 
 
         try {
-            //只打印核心组件
+            // 只打印核心组件
             if(this.getClass().getName().startsWith("org.apache.catalina.core")||this.getClass().getName().startsWith("org.apache.catalina.connector")){
                 System.out.println(this.getClass()+"--init()");
             }

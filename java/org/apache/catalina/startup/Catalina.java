@@ -543,7 +543,7 @@ public class Catalina {
         // Before digester - it may be needed
         initNaming();
 
-        //创建并执行Digester来读取conf/server.xml文件
+        // 创建并执行Digester来读取conf/server.xml文件
         Digester digester = createStartDigester();
 
         InputSource inputSource = null;
@@ -559,7 +559,7 @@ public class Catalina {
                     log.debug(sm.getString("catalina.configFail", file), e);
                 }
             }
-            //读取conf/server.xml的数据
+            // 读取conf/server.xml的数据
             if (inputStream == null) {
                 try {
                     inputStream = getClass().getClassLoader()
@@ -638,7 +638,7 @@ public class Catalina {
 
         // Start the new server
         try {
-            //经过Digester这里的Server已经是StandardServer ,但是StandardServer类中没有init方法
+            // 经过Digester这里的Server已经是StandardServer ,但是StandardServer类中没有init方法
             getServer().init();
         } catch (LifecycleException e) {
             if (Boolean.getBoolean("org.apache.catalina.startup.EXIT_ON_INIT_FAILURE")) {
@@ -658,7 +658,7 @@ public class Catalina {
     /*
      * Load using arguments
      */
-    public void load(String args[]) {
+    public void load(String[] args) {
         System.out.println("Catalina--load()");
         try {
             if (arguments(args)) {
