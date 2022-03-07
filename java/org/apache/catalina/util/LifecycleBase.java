@@ -83,10 +83,10 @@ public abstract class LifecycleBase implements Lifecycle {
 
 
     /**
-     * Allow sub classes to fire {@link Lifecycle} events.
+     * Allow subclasses to fire {@link Lifecycle} events.
      *
-     * @param type  Event type
-     * @param data  Data associated with event.
+     * @param type Event type
+     * @param data Data associated with event.
      */
     protected void fireLifecycleEvent(String type, Object data) {
         LifecycleEvent event = new LifecycleEvent(this, type, data);
@@ -98,16 +98,16 @@ public abstract class LifecycleBase implements Lifecycle {
 
     @Override
     public final synchronized void init() throws LifecycleException {
-        //这个就是为了防止 组件启动的顺序不对
+        // 这个就是为了防止 组件启动的顺序不对
         if (!state.equals(LifecycleState.NEW)) {
             invalidTransition(Lifecycle.BEFORE_INIT_EVENT);
         }
 
-
         try {
             // 只打印核心组件
-            if(this.getClass().getName().startsWith("org.apache.catalina.core")||this.getClass().getName().startsWith("org.apache.catalina.connector")){
-                System.out.println(this.getClass()+"--init()");
+            if (this.getClass().getName().startsWith("org.apache.catalina.core")
+                    || this.getClass().getName().startsWith("org.apache.catalina.connector")) {
+                System.out.println(this.getClass() + "--init()");
             }
             setStateInternal(LifecycleState.INITIALIZING, null, false);
             initInternal();
@@ -116,7 +116,7 @@ public abstract class LifecycleBase implements Lifecycle {
             ExceptionUtils.handleThrowable(t);
             setStateInternal(LifecycleState.FAILED, null, false);
             throw new LifecycleException(
-                    sm.getString("lifecycleBase.initFail",toString()), t);
+                    sm.getString("lifecycleBase.initFail", toString()), t);
         }
     }
 
@@ -153,8 +153,8 @@ public abstract class LifecycleBase implements Lifecycle {
 
         try {
             //只打印核心组件
-            if(this.getClass().getName().startsWith("org.apache.catalina.core")||this.getClass().getName().startsWith("org.apache.catalina.connector")){
-                System.out.println(this.getClass()+"--start()");
+            if (this.getClass().getName().startsWith("org.apache.catalina.core") || this.getClass().getName().startsWith("org.apache.catalina.connector")) {
+                System.out.println(this.getClass() + "--start()");
             }
 
             setStateInternal(LifecycleState.STARTING_PREP, null, false);
@@ -184,7 +184,7 @@ public abstract class LifecycleBase implements Lifecycle {
      * Sub-classes must ensure that the state is changed to
      * {@link LifecycleState#STARTING} during the execution of this method.
      * Changing state will trigger the {@link Lifecycle#START_EVENT} event.
-     *
+     * <p>
      * If a component fails to start it may either throw a
      * {@link LifecycleException} which will cause it's parent to fail to start
      * or it can place itself in the error state in which case {@link #stop()}
@@ -246,7 +246,7 @@ public abstract class LifecycleBase implements Lifecycle {
         } catch (Throwable t) {
             ExceptionUtils.handleThrowable(t);
             setStateInternal(LifecycleState.FAILED, null, false);
-            throw new LifecycleException(sm.getString("lifecycleBase.stopFail",toString()), t);
+            throw new LifecycleException(sm.getString("lifecycleBase.stopFail", toString()), t);
         } finally {
             if (this instanceof Lifecycle.SingleUse) {
                 // Complete stop process first
@@ -310,7 +310,7 @@ public abstract class LifecycleBase implements Lifecycle {
             ExceptionUtils.handleThrowable(t);
             setStateInternal(LifecycleState.FAILED, null, false);
             throw new LifecycleException(
-                    sm.getString("lifecycleBase.destroyFail",toString()), t);
+                    sm.getString("lifecycleBase.destroyFail", toString()), t);
         }
     }
 
@@ -366,7 +366,7 @@ public abstract class LifecycleBase implements Lifecycle {
     }
 
     private synchronized void setStateInternal(LifecycleState state,
-            Object data, boolean check) throws LifecycleException {
+                                               Object data, boolean check) throws LifecycleException {
 
         if (log.isDebugEnabled()) {
             log.debug(sm.getString("lifecycleBase.setState", this, state));
@@ -401,6 +401,7 @@ public abstract class LifecycleBase implements Lifecycle {
 
         this.state = state;
         String lifecycleEvent = state.getLifecycleEvent();
+        // 触发相应生命周期节点事件
         if (lifecycleEvent != null) {
             fireLifecycleEvent(lifecycleEvent, data);
         }
