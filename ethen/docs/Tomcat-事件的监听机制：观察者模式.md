@@ -46,7 +46,7 @@ public interface Lifecycle {
 
 观察者(Observer)的注册功能需要调用主题的 registerObserver() 方法。
 
-![img](https://pdai-1257820000.cos.ap-beijing.myqcloud.com/pdai.tech/public/_images/pics/0df5d84c-e7ca-4e3a-a688-bb8e68894467.png)
+![img](/ethen/imgs/tomcat/0df5d84c-e7ca-4e3a-a688-bb8e68894467.png)
 
 详情请参考 设计模式：[行为型 - 观察者(Observer) ]()
 
