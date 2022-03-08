@@ -5,8 +5,8 @@
 ##  引入
 
 - 线程池Executor是在哪里启动的？
-- Request是如何处理并交个Container处理的？
-- Tomcat支持哪些协议？这些协议是处理的？协议层次结构如何设计的？
+- Request是如何处理并交给Container处理的？
+- Tomcat支持哪些协议？这些协议是如何处理的？协议层次结构如何设计的？
 
 ## [¶](#connector) Connector
 
