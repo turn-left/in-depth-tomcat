@@ -55,15 +55,15 @@
 这一点，还可以通过相关注释可以看出：
 
 ```html
-**Loader** - Class loader to use for integrating new Java classes for this Container into the JVM in which Catalina is running.
+<b>Loader</b> - Class loader to use for integrating new Java classes for this Container into the JVM in which Catalina is running.
 
-**Logger** - Implementation of the log() method signatures of the ServletContext interface.
+<b>Logger</b> - Implementation of the log() method signatures of the ServletContext interface.
 
-**Manager** - Manager for the pool of Sessions associated with this Container.
+<b>Manager</b> - Manager for the pool of Sessions associated with this Container.
 
-**Realm** - Read-only interface to a security domain, for authenticating user identities and their corresponding roles.
+<b>Realm</b> - Read-only interface to a security domain, for authenticating user identities and their corresponding roles.
 
-**Resources** - JNDI directory context enabling access to static resources, enabling custom linkages to existing server components when Catalina is embedded in a larger server.    
+<b>Resources</b> - JNDI directory context enabling access to static resources, enabling custom linkages to existing server components when Catalina is embedded in a larger server.    
 ```
 
 
