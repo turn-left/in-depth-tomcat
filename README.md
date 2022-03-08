@@ -67,8 +67,8 @@
 - [Tomcat - 事件的监听机制：观察者模式](/ethen/docs/Tomcat-事件的监听机制：观察者模式.md)
 - [Tomcat - Server的设计和实现：StandardServer](/ethen/docs/Tomcat-Server的设计和实现StandardServer.md)
 - [Tomcat - Service的设计和实现：StandardService](/ethen/docs/Tomcat-Service的设计和实现StandardService.md)
-- [Tomcat - Request请求处理过程：Container设计](/ethen/docs/Tomcat-Request请求处理Container设计.md)
 - [Tomcat - Request请求处理过程：Connector](/ethen/docs/Tomcat-Request请求处理过程Connector.md)
+- [Tomcat - Request请求处理过程：Container设计](/ethen/docs/Tomcat-Request请求处理Container设计.md)
 - [Tomcat - Container的管道机制：责任链模式](/ethen/docs/Tomcat-Container的管道机制：责任链模式.md)
 - [Tomcat - 线程池的设计与实现：StandardThreadExecutor](/ethen/docs/Tomcat-线程池的设计与实现：StandardThreadExecutor.md)
 
