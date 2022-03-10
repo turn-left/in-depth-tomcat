@@ -794,6 +794,7 @@ public class Http11Processor extends AbstractProcessor {
                 keepAlive = false;
             }
 
+            // fixme 处理HTTP请求 待分析...
             // Process the request in the adapter
             if (getErrorState().isIoAllowed()) {
                 try {

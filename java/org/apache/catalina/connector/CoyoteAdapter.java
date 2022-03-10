@@ -73,13 +73,14 @@ public class CoyoteAdapter implements Adapter {
             System.getProperty("java.runtime.version") + ")";
 
     private static final EnumSet<SessionTrackingMode> SSL_ONLY =
-        EnumSet.of(SessionTrackingMode.SSL);
+            EnumSet.of(SessionTrackingMode.SSL);
 
     public static final int ADAPTER_NOTES = 1;
 
 
     protected static final boolean ALLOW_BACKSLASH =
-        Boolean.parseBoolean(System.getProperty("org.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH", "false"));
+            Boolean.parseBoolean(System.getProperty("org.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH",
+                    "false"));
 
 
     private static final ThreadLocal<String> THREAD_NAME =
@@ -90,7 +91,7 @@ public class CoyoteAdapter implements Adapter {
                     return Thread.currentThread().getName();
                 }
 
-    };
+            };
 
     // ----------------------------------------------------------- Constructors
 
@@ -127,7 +128,7 @@ public class CoyoteAdapter implements Adapter {
 
     @Override
     public boolean asyncDispatch(org.apache.coyote.Request req, org.apache.coyote.Response res,
-            SocketEvent status) throws Exception {
+                                 SocketEvent status) throws Exception {
 
         Request request = (Request) req.getNote(ADAPTER_NOTES);
         Response response = (Response) res.getNote(ADAPTER_NOTES);
@@ -149,16 +150,16 @@ public class CoyoteAdapter implements Adapter {
                 response.setSuspended(false);
             }
 
-            if (status==SocketEvent.TIMEOUT) {
+            if (status == SocketEvent.TIMEOUT) {
                 if (!asyncConImpl.timeout()) {
                     asyncConImpl.setErrorState(null, false);
                 }
-            } else if (status==SocketEvent.ERROR) {
+            } else if (status == SocketEvent.ERROR) {
                 // An I/O error occurred on a non-container thread which means
                 // that the socket needs to be closed so set success to false to
                 // trigger a close
                 success = false;
-                Throwable t = (Throwable)req.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+                Throwable t = (Throwable) req.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
                 req.getAttributes().remove(RequestDispatcher.ERROR_EXCEPTION);
                 ClassLoader oldCL = null;
                 try {
@@ -254,7 +255,7 @@ public class CoyoteAdapter implements Adapter {
                     // Connection will be forcibly closed which will prevent
                     // completion happening at the usual point. Need to trigger
                     // call to onComplete() here.
-                    res.action(ActionCode.ASYNC_POST_PROCESS,  null);
+                    res.action(ActionCode.ASYNC_POST_PROCESS, null);
                 }
                 success = false;
             }
@@ -305,9 +306,9 @@ public class CoyoteAdapter implements Adapter {
 
         if (request == null) {
             // Create objects
-            request = connector.createRequest();
+            request = connector.createRequest(); // 构造Request对象
             request.setCoyoteRequest(req);
-            response = connector.createResponse();
+            response = connector.createResponse(); // 构造Response对象
             response.setCoyoteResponse(res);
 
             // Link objects
@@ -384,7 +385,7 @@ public class CoyoteAdapter implements Adapter {
                 // Connection will be forcibly closed which will prevent
                 // completion happening at the usual point. Need to trigger
                 // call to onComplete() here.
-                res.action(ActionCode.ASYNC_POST_PROCESS,  null);
+                res.action(ActionCode.ASYNC_POST_PROCESS, null);
                 async = false;
             }
 
@@ -449,7 +450,7 @@ public class CoyoteAdapter implements Adapter {
 
     @Override
     public void log(org.apache.coyote.Request req,
-            org.apache.coyote.Response res, long time) {
+                    org.apache.coyote.Response res, long time) {
 
         Request request = (Request) req.getNote(ADAPTER_NOTES);
         Response response = (Response) res.getNote(ADAPTER_NOTES);
@@ -506,7 +507,7 @@ public class CoyoteAdapter implements Adapter {
 
     @Override
     public void checkRecycled(org.apache.coyote.Request req,
-            org.apache.coyote.Response res) {
+                              org.apache.coyote.Response res) {
         Request request = (Request) req.getNote(ADAPTER_NOTES);
         Response response = (Response) res.getNote(ADAPTER_NOTES);
         String messageKey = null;
@@ -555,17 +556,16 @@ public class CoyoteAdapter implements Adapter {
      * @param request  The catalina request object
      * @param res      The coyote response object
      * @param response The catalina response object
-     *
      * @return <code>true</code> if the request should be passed on to the start
-     *         of the container pipeline, otherwise <code>false</code>
-     *
-     * @throws IOException If there is insufficient space in a buffer while
-     *                     processing headers
+     * of the container pipeline, otherwise <code>false</code>
+     * @throws IOException      If there is insufficient space in a buffer while
+     *                          processing headers
      * @throws ServletException If the supported methods of the target servlet
      *                          cannot be determined
      */
     protected boolean postParseRequest(org.apache.coyote.Request req, Request request,
-            org.apache.coyote.Response res, Response response) throws IOException, ServletException {
+                                       org.apache.coyote.Response res, Response response) throws IOException,
+            ServletException {
 
         // If the processor has set the scheme (AJP does this, HTTP does this if
         // SSL is enabled) use this to set the secure flag as well. If the
@@ -796,8 +796,8 @@ public class CoyoteAdapter implements Adapter {
                 // shouldn't matter
                 redirectPath = redirectPath + ";" +
                         SessionConfig.getSessionUriParamName(
-                            request.getContext()) +
-                    "=" + request.getRequestedSessionId();
+                                request.getContext()) +
+                        "=" + request.getRequestedSessionId();
             }
             if (query != null) {
                 // This is not optimal, but as this is not very common, it
@@ -817,7 +817,7 @@ public class CoyoteAdapter implements Adapter {
             if (wrapper != null) {
                 String[] methods = wrapper.getServletMethods();
                 if (methods != null) {
-                    for (int i=0; i < methods.length; i++) {
+                    for (int i = 0; i < methods.length; i++) {
                         if ("TRACE".equals(methods[i])) {
                             continue;
                         }
@@ -887,11 +887,11 @@ public class CoyoteAdapter implements Adapter {
      * interested in the session ID that will be in this form. Other parameters
      * can safely be ignored.
      *
-     * @param req The Coyote request object
+     * @param req     The Coyote request object
      * @param request The Servlet request object
      */
     protected void parsePathParameters(org.apache.coyote.Request req,
-            Request request) {
+                                       Request request) {
 
         // Process in bytes (this is default format so this is normally a NO-OP
         req.decodedURI().toBytes();
@@ -924,27 +924,27 @@ public class CoyoteAdapter implements Adapter {
             int pathParamStart = semicolon + 1;
             int pathParamEnd = ByteChunk.findBytes(uriBC.getBuffer(),
                     start + pathParamStart, end,
-                    new byte[] {';', '/'});
+                    new byte[]{';', '/'});
 
             String pv = null;
 
             if (pathParamEnd >= 0) {
                 if (charset != null) {
                     pv = new String(uriBC.getBuffer(), start + pathParamStart,
-                                pathParamEnd - pathParamStart, charset);
+                            pathParamEnd - pathParamStart, charset);
                 }
                 // Extract path param from decoded request URI
                 byte[] buf = uriBC.getBuffer();
                 for (int i = 0; i < end - start - pathParamEnd; i++) {
                     buf[start + semicolon + i]
-                        = buf[start + i + pathParamEnd];
+                            = buf[start + i + pathParamEnd];
                 }
                 uriBC.setBytes(buf, start,
                         end - start - pathParamEnd + semicolon);
             } else {
                 if (charset != null) {
                     pv = new String(uriBC.getBuffer(), start + pathParamStart,
-                                (end - start) - pathParamStart, charset);
+                            (end - start) - pathParamStart, charset);
                 }
                 uriBC.setEnd(start + semicolon);
             }
@@ -989,7 +989,7 @@ public class CoyoteAdapter implements Adapter {
         if (request.getRequestedSessionId() == null &&
                 SSL_ONLY.equals(request.getServletContext()
                         .getEffectiveSessionTrackingModes()) &&
-                        request.connector.secure) {
+                request.connector.secure) {
             String sessionId = (String) request.getAttribute(SSLSupport.SESSION_ID_KEY);
             if (sessionId != null) {
                 request.setRequestedSessionId(sessionId);
@@ -1034,19 +1034,19 @@ public class CoyoteAdapter implements Adapter {
                     // Accept only the first session id cookie
                     convertMB(scookie.getValue());
                     request.setRequestedSessionId
-                        (scookie.getValue().toString());
+                            (scookie.getValue().toString());
                     request.setRequestedSessionCookie(true);
                     request.setRequestedSessionURL(false);
                     if (log.isDebugEnabled()) {
                         log.debug(" Requested cookie session id is " +
-                            request.getRequestedSessionId());
+                                request.getRequestedSessionId());
                     }
                 } else {
                     if (!request.isRequestedSessionIdValid()) {
                         // Replace the session id until one is valid
                         convertMB(scookie.getValue());
                         request.setRequestedSessionId
-                            (scookie.getValue().toString());
+                                (scookie.getValue().toString());
                     }
                 }
             }
@@ -1058,7 +1058,7 @@ public class CoyoteAdapter implements Adapter {
     /**
      * Character conversion of the URI.
      *
-     * @param uri MessageBytes object containing the URI
+     * @param uri     MessageBytes object containing the URI
      * @param request The Servlet request object
      * @throws IOException if a IO exception occurs sending an error to the client
      */
@@ -1123,10 +1123,9 @@ public class CoyoteAdapter implements Adapter {
      * This method normalizes "\", "//", "/./" and "/../".
      *
      * @param uriMB URI to be normalized
-     *
      * @return <code>false</code> if normalizing this URI would require going
-     *         above the root, or if the URI contains a null byte, otherwise
-     *         <code>true</code>
+     * above the root, or if the URI contains a null byte, otherwise
+     * <code>true</code>
      */
     public static boolean normalize(MessageBytes uriMB) {
 
@@ -1183,7 +1182,7 @@ public class CoyoteAdapter implements Adapter {
         // as the next character is a non-significant WS.
         if (((end - start) >= 2) && (b[end - 1] == (byte) '.')) {
             if ((b[end - 2] == (byte) '/')
-                || ((b[end - 2] == (byte) '.')
+                    || ((b[end - 2] == (byte) '.')
                     && (b[end - 3] == (byte) '/'))) {
                 b[end] = (byte) '/';
                 end++;
@@ -1201,7 +1200,7 @@ public class CoyoteAdapter implements Adapter {
                 break;
             }
             copyBytes(b, start + index, start + index + 2,
-                      end - start - index - 2);
+                    end - start - index - 2);
             end = end - 2;
             uriBC.setEnd(end);
         }
@@ -1219,13 +1218,13 @@ public class CoyoteAdapter implements Adapter {
                 return false;
             }
             int index2 = -1;
-            for (pos = start + index - 1; (pos >= 0) && (index2 < 0); pos --) {
+            for (pos = start + index - 1; (pos >= 0) && (index2 < 0); pos--) {
                 if (b[pos] == (byte) '/') {
                     index2 = pos;
                 }
             }
             copyBytes(b, start + index2, start + index + 3,
-                      end - start - index - 3);
+                    end - start - index - 3);
             end = end + index2 - index - 3;
             uriBC.setEnd(end);
             index = index2;
@@ -1241,10 +1240,9 @@ public class CoyoteAdapter implements Adapter {
      * method checks for "\", 0, "//", "/./" and "/../".
      *
      * @param uriMB URI to be checked (should be chars)
-     *
      * @return <code>false</code> if sequences that are supposed to be
-     *         normalized are still present in the URI, otherwise
-     *         <code>true</code>
+     * normalized are still present in the URI, otherwise
+     * <code>true</code>
      */
     public static boolean checkNormalize(MessageBytes uriMB) {
 
@@ -1305,10 +1303,10 @@ public class CoyoteAdapter implements Adapter {
      * Copy an array of bytes to a different position. Used during
      * normalization.
      *
-     * @param b The bytes that should be copied
+     * @param b    The bytes that should be copied
      * @param dest Destination offset
-     * @param src Source offset
-     * @param len Length
+     * @param src  Source offset
+     * @param len  Length
      */
     protected static void copyBytes(byte[] b, int dest, int src, int len) {
         for (int pos = 0; pos < len; pos++) {
