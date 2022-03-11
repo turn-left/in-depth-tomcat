@@ -64,7 +64,8 @@ import org.apache.tomcat.util.net.SocketWrapperBase;
 import org.apache.tomcat.util.res.StringManager;
 
 /**
- * 处理HTTP/1.1
+ * 处理HTTP/1.1 fixme 待分析。。。
+ *
  */
 public class Http11Processor extends AbstractProcessor {
 

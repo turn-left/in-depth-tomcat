@@ -110,7 +110,7 @@ public final class Request {
     /**
      * Notes.
      */
-    private final Object notes[] = new Object[Constants.MAX_NOTES];
+    private final Object[] notes = new Object[Constants.MAX_NOTES];
 
 
     /**
