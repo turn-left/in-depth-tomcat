@@ -89,6 +89,7 @@ public class WebappServiceLoader<T> {
      * @throws IOException if there was a problem loading any service
      */
     public List<T> load(Class<T> serviceType) throws IOException {
+        // Servlet3.0 SPI机制配置文件位置
         String configFile = SERVICES + serviceType.getName();
 
         LinkedHashSet<String> applicationServicesFound = new LinkedHashSet<>();
