@@ -1244,6 +1244,7 @@ public class StandardContext extends ContainerBase
     @Override
     public void addServletContainerInitializer(
             ServletContainerInitializer sci, Set<Class<?>> classes) {
+        // HandlesTypes 收集原理
         initializers.put(sci, classes);
     }
 
@@ -5222,6 +5223,7 @@ public class StandardContext extends ContainerBase
             for (Map.Entry<ServletContainerInitializer, Set<Class<?>>> entry :
                 initializers.entrySet()) {
                 try {
+                    // fixme Servlet 3.0 SPI机制
                     entry.getKey().onStartup(entry.getValue(),
                             getServletContext());
                 } catch (ServletException e) {
