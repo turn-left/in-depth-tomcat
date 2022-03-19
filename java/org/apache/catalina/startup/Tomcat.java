@@ -1090,15 +1090,22 @@ public class Tomcat {
             return result;
         }
 
+        /**
+         * 加载Servlet (实例化->初始化)
+         *
+         * @return servlet instance
+         */
         @Override
         public synchronized Servlet loadServlet() throws ServletException {
             if (singleThreadModel) {
                 Servlet instance;
                 try {
+                    // 创建Servlet实例
                     instance = existing.getClass().getConstructor().newInstance();
                 } catch (ReflectiveOperationException e) {
                     throw new ServletException(e);
                 }
+                // Servlet初始化
                 instance.init(facade);
                 return instance;
             } else {
